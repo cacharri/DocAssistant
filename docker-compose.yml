@@ -1,0 +1,48 @@
+services:
+  api:
+    build: .
+    container_name: docassistant-api
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16
+    container_name: docassistant-postgres
+    environment:
+      POSTGRES_DB: docassistant
+      POSTGRES_USER: docassistant
+      POSTGRES_PASSWORD: docassistant
+    ports:
+      - "5432:5432"
+    volumes:
+      - docassistant_pg:/var/lib/postgresql/data
+      - ./app/db/schema.sql:/docker-entrypoint-initdb.d/001_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U docassistant -d docassistant"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    container_name: docassistant-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - docassistant_redis:/data
+    restart: unless-stopped
+
+volumes:
+  docassistant_pg:
+  docassistant_redis:
