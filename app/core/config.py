@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     top_k: int = Field(default=5, alias="TOP_K")
     min_score: float = Field(default=0.30, alias="MIN_SCORE")
     debug_rag: bool = Field(default=False, alias="DEBUG_RAG")
+    search_candidates_k: int = Field(default=15, alias="SEARCH_CANDIDATES_K")
+    max_citations: int = Field(default=5, alias="MAX_CITATIONS")
+
 
 
 
