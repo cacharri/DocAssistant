@@ -3,7 +3,7 @@ import logging
 from pydantic import BaseModel, Field
 from fastapi import APIRouter, Request
 from typing import Optional
-
+from app.retrieval.retrieve import run_retrieval
 from app.core.config import settings
 from app.retrieval.index_store import search
 from app.db.queries import fetch_chunks_by_faiss_ids
@@ -17,84 +17,6 @@ def _clean_excerpt(text: str, max_chars: int = 420) -> str:
     if len(t) > max_chars:
         t = t[:max_chars].rstrip() + "…"
     return t
-
-
-def _dedupe_by_source_page(rows: list[dict]) -> list[dict]:
-    seen = set()
-    out = []
-    for r in rows:
-        key = (r.get("source"), r.get("page"))
-        if key in seen:
-            continue
-        seen.add(key)
-        out.append(r)
-    return out
-
-def _run_retrieval(query: str):
-    t0 = time.perf_counter()
-
-    t_search0 = time.perf_counter()
-    faiss_ids, scores = search(query, settings.search_candidates_k)
-    t_search1 = time.perf_counter()
-
-    if not faiss_ids or (scores and max(scores) < settings.min_score):
-        latency_ms = (time.perf_counter() - t0) * 1000
-        dbg = None
-        if settings.debug_rag:
-            dbg = {
-                "model": settings.embedding_model_name,
-                "index_dir": settings.index_dir,
-                "search_candidates_k": settings.search_candidates_k,
-                "max_citations": settings.max_citations,
-                "min_score": settings.min_score,
-                "faiss_ids": faiss_ids,
-                "scores": scores,
-                "timings_ms": {
-                    "search_total": (t_search1 - t_search0) * 1000,
-                    "total": latency_ms,
-                },
-                "reason": "no_evidence_or_low_score",
-            }
-        return [], dbg, latency_ms, faiss_ids, scores, (t_search1 - t_search0) * 1000, 0.0
-
-    t_db0 = time.perf_counter()
-    rows = fetch_chunks_by_faiss_ids(faiss_ids, settings.embedding_model_name)
-    t_db1 = time.perf_counter()
-
-    paired = []
-    for i, row in enumerate(rows):
-        r = dict(row)
-        r["_score"] = scores[i] if i < len(scores) else None
-        paired.append(r)
-
-    paired = _dedupe_by_source_page(paired)
-    paired = paired[: settings.max_citations]
-
-    latency_ms = (time.perf_counter() - t0) * 1000
-
-    dbg = None
-    if settings.debug_rag:
-        dbg = {
-            "model": settings.embedding_model_name,
-            "index_dir": settings.index_dir,
-            "search_candidates_k": settings.search_candidates_k,
-            "max_citations": settings.max_citations,
-            "min_score": settings.min_score,
-            "faiss_ids": faiss_ids,
-            "scores": scores,
-            "returned_chunks": [
-                {"chunk_id": r.get("chunk_id"), "source": r.get("source"), "page": r.get("page")}
-                for r in paired
-            ],
-            "timings_ms": {
-                "search_total": (t_search1 - t_search0) * 1000,
-                "db_fetch": (t_db1 - t_db0) * 1000,
-                "total": latency_ms,
-            },
-        }
-
-    return paired, dbg, latency_ms, faiss_ids, scores, (t_search1 - t_search0) * 1000, (t_db1 - t_db0) * 1000
-
 class AskRequest(BaseModel):
     question: str = Field(min_length=1, max_length=4000)
 

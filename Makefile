@@ -48,3 +48,6 @@ psql:
 db:
 	docker exec -it docassistant-postgres psql -U docassistant -d docassistant -c "SELECT doc_type, count(*) FROM documents GROUP BY doc_type;"
 	docker exec -it docassistant-postgres psql -U docassistant -d docassistant -c "SELECT count(*) FROM chunks;"
+
+eval:
+	docker compose run --rm api python -m app.eval.retrieval_eval --k 5

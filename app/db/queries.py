@@ -61,6 +61,12 @@ def fetch_chunks_by_faiss_ids(faiss_ids: List[int], model_name: str) -> List[Dic
 
     by_faiss = {}
     for faiss_id, chunk_id, text, page, source in rows:
-        by_faiss[int(faiss_id)] = {"chunk_id": chunk_id, "text": text, "page": page, "source": source}
+        by_faiss[int(faiss_id)] = {
+            "faiss_id": int(faiss_id),
+            "chunk_id": chunk_id,
+            "text": text,
+            "page": page,
+            "source": source,
+        }
 
     return [by_faiss[fid] for fid in faiss_ids if fid in by_faiss]

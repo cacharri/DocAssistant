@@ -1,0 +1,22 @@
+{"query":"What is gradient descent?","expected":[{"source":"9781040267639.pdf","page":118}]}
+{"query":"Define overfitting.","expected":[{"source":"Machine-Learning-Systems.pdf","page":202}]}
+{"query":"What is a confusion matrix?","expected":[{"source":"9781040267639.pdf","page":111}]}
+{"query":"What is regularization (L1 vs L2)?","expected":[{"source":"main_notes.pdf","page":138}]}
+{"query":"Explain cross-validation.","expected":[{"source":"main_notes.pdf","page":143}]}
+{"query":"What is concept drift?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1179}]}
+{"query":"What is data drift?","expected":[{"source":"Machine-Learning-Systems.pdf","page":343}]}
+{"query":"What is train/serving skew?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1958}]}
+{"query":"What is model drift?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1179}]}
+{"query":"What is A/B testing in ML?","expected":[{"source":"Machine-Learning-Systems.pdf","page":69}]}
+{"query":"What is a feature store?","expected":[{"source":"Machine-Learning-Systems.pdf","page":444}]}
+{"query":"What is MLOps?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1895}]}
+{"query":"What is a data pipeline?","expected":[{"source":"Machine-Learning-Systems.pdf","page":381}]}
+{"query":"What is data poisoning?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1480}]}
+{"query":"What is data curation?","expected":[{"source":"9781040267639.pdf","page":93}]}
+{"query":"What is model retraining?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1585}]}
+{"query":"What is model monitoring?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1179}]}
+{"query":"What is input validation?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1392}]}
+{"query":"What is telemetry in ML systems?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1194}]}
+{"query":"What is data validation?","expected":[{"source":"9781040267639.pdf","page":96}]}
+{"query":"What is a model card?","expected":[{"source":"Machine-Learning-Systems.pdf","page":1941}]}
+{"query":"What is a feedback loop in ML systems?","expected":[{"source":"Machine-Learning-Systems.pdf","page":351}]}

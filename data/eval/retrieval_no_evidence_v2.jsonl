@@ -1,0 +1,10 @@
+{"query":"According to the NIST AI Risk Management Framework (AI RMF 1.0), what are the four core functions?","expected":[]}
+{"query":"In the EU AI Act, what are the obligations for post-market monitoring of high-risk AI systems?","expected":[]}
+{"query":"According to Google's Secure AI Framework (SAIF), what are the main pillars?","expected":[]}
+{"query":"In OpenAI's Model Spec, what is the policy on tool use for data exfiltration attempts?","expected":[]}
+{"query":"In the paper 'Constitutional AI' (Anthropic), what is the two-phase training process?","expected":[]}
+{"query":"According to OWASP Top 10 for LLM Applications, what is Prompt Injection and what are key mitigations?","expected":[]}
+{"query":"In 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks' (Lewis et al., 2020), what is the end-to-end training objective?","expected":[]}
+{"query":"According to 'LoRA: Low-Rank Adaptation of Large Language Models', what is the core idea and why does it reduce trainable parameters?","expected":[]}
+{"query":"In the 'Direct Preference Optimization' (DPO) paper, how does it avoid training a separate reward model?","expected":[]}
+{"query":"According to the NIST adversarial machine learning taxonomy, what are the main attack categories?","expected":[]}

@@ -1,0 +1,828 @@
+{
+  "k": 5,
+  "cases_total": 22,
+  "cases_scored_gold": 22,
+  "recall_at_k": 0.9545454545454546,
+  "mrr": 0.7492424242424243,
+  "no_evidence_total": 0,
+  "no_evidence_accuracy": null,
+  "false_evidence_rate": null,
+  "page_offset": 0,
+  "page_tolerance": 0,
+  "details": [
+    {
+      "query": "What is gradient descent?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 118
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 118
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 606
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 12
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 200
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 13
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "Define overfitting.",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 202
+        }
+      ],
+      "hit": true,
+      "rr": 0.5,
+      "retrieved": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 117
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 202
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 12
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 13
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1945
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is a confusion matrix?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 111
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 111
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 186
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 37
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 40
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 38
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is regularization (L1 vs L2)?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "main_notes.pdf",
+          "page": 138
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "main_notes.pdf",
+          "page": 138
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 136
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 113
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 137
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 124
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "Explain cross-validation.",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "main_notes.pdf",
+          "page": 143
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "main_notes.pdf",
+          "page": 143
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 117
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 109
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 141
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 108
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is concept drift?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1179
+        }
+      ],
+      "hit": true,
+      "rr": 0.5,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1487
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1179
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1533
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 343
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1470
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is data drift?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 343
+        }
+      ],
+      "hit": true,
+      "rr": 0.25,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1179
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 94
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 362
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 343
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 119
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is train/serving skew?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1958
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1958
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 385
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 443
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 57
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1234
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is model drift?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1179
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1179
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1487
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 343
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 362
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 119
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is A/B testing in ML?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 69
+        }
+      ],
+      "hit": true,
+      "rr": 0.5,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 338
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 69
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 320
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 355
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 356
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is a feature store?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 444
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 444
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1163
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1170
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 411
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 445
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is MLOps?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1895
+        }
+      ],
+      "hit": true,
+      "rr": 0.2,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1150
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1228
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1230
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1151
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1895
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is a data pipeline?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 381
+        }
+      ],
+      "hit": true,
+      "rr": 0.2,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1190
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 456
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 463
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 375
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 381
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is data poisoning?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1480
+        }
+      ],
+      "hit": false,
+      "rr": 0.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1495
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1483
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1921
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1497
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1484
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is data curation?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 93
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 93
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1921
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 95
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 377
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 373
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is model retraining?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1585
+        }
+      ],
+      "hit": true,
+      "rr": 0.3333333333333333,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 362
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1941
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1585
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 110
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1241
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is model monitoring?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1179
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1179
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1569
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1846
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1180
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 89
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is input validation?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1392
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1392
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1393
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1422
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1167
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1351
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is telemetry in ML systems?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1194
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1194
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 340
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 34
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1939
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1569
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is data validation?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 96
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 96
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1392
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1496
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 375
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 458
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is a model card?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1941
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1941
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1973
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1390
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1561
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1288
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    },
+    {
+      "query": "What is a feedback loop in ML systems?",
+      "kind": "gold",
+      "scored": true,
+      "expected": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 351
+        }
+      ],
+      "hit": true,
+      "rr": 1.0,
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 351
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 366
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 352
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 355
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 323
+        }
+      ],
+      "retrieved_page_offset_applied": 0,
+      "page_tolerance": 0
+    }
+  ]
+}

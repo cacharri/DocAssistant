@@ -8,6 +8,9 @@ services:
       - "8000:8000"
     volumes:
       - ./:/app
+      - hf_cache:/root/.cache/huggingface
+    environment:
+      - HF_HOME=/root/.cache/huggingface
     depends_on:
       postgres:
         condition: service_healthy
@@ -46,3 +49,4 @@ services:
 volumes:
   docassistant_pg:
   docassistant_redis:
+  hf_cache:

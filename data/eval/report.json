@@ -1,0 +1,122 @@
+{
+  "k": 5,
+  "cases_total": 4,
+  "cases_scored": 0,
+  "recall_at_k": null,
+  "mrr": null,
+  "no_evidence_rate": 0.0,
+  "details": [
+    {
+      "query": "What is target leakage?",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1372
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1358
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1504
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1364
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1369
+        }
+      ],
+      "no_evidence": false
+    },
+    {
+      "query": "What is label leakage?",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 423
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 422
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 430
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 433
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 93
+        }
+      ],
+      "no_evidence": false
+    },
+    {
+      "query": "What is shadow deployment?",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 147
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1235
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1302
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 327
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 443
+        }
+      ],
+      "no_evidence": false
+    },
+    {
+      "query": "What is data leakage?",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1436
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 403
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1372
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1921
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 399
+        }
+      ],
+      "no_evidence": false
+    }
+  ]
+}

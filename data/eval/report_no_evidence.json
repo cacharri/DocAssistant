@@ -1,0 +1,220 @@
+{
+  "k": 5,
+  "cases_total": 10,
+  "cases_scored_gold": 0,
+  "recall_at_k": null,
+  "mrr": null,
+  "no_evidence_total": 10,
+  "no_evidence_accuracy": 0.4,
+  "false_evidence_rate": 0.6,
+  "page_offset": 0,
+  "page_tolerance": 0,
+  "details": [
+    {
+      "query": "According to the NIST AI Risk Management Framework (AI RMF 1.0), what are the four core functions?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [],
+      "predicted_empty": true
+    },
+    {
+      "query": "In the EU AI Act, what are the requirements for post-market monitoring of high-risk AI systems?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "9781040267639.pdf",
+          "page": 157
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 156
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1712
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1732
+        },
+        {
+          "source": "9781040267639.pdf",
+          "page": 161
+        }
+      ],
+      "predicted_empty": false
+    },
+    {
+      "query": "In OpenAI's 'Model Spec', what is the policy on tool use for data exfiltration attempts?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1396
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1200
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1482
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1584
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1357
+        }
+      ],
+      "predicted_empty": false
+    },
+    {
+      "query": "According to Google's Secure AI Framework (SAIF), what are the main pillars?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [],
+      "predicted_empty": true
+    },
+    {
+      "query": "In Anthropic's Constitutional AI paper, what is the two-phase training process?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [],
+      "predicted_empty": true
+    },
+    {
+      "query": "According to the OWASP Top 10 for LLM Applications, what is Prompt Injection and how is it mitigated?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [],
+      "predicted_empty": true
+    },
+    {
+      "query": "In the paper 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks' (Lewis et al., 2020), what is the end-to-end training objective?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1976
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1066
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1980
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1832
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 712
+        }
+      ],
+      "predicted_empty": false
+    },
+    {
+      "query": "According to 'LoRA: Low-Rank Adaptation of Large Language Models', what is the key idea and why does it reduce trainable parameters?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1272
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 774
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1985
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 730
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1971
+        }
+      ],
+      "predicted_empty": false
+    },
+    {
+      "query": "In the 'Direct Preference Optimization' (DPO) paper, how does it avoid a separate reward model?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1842
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1673
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1619
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 190
+        },
+        {
+          "source": "main_notes.pdf",
+          "page": 219
+        }
+      ],
+      "predicted_empty": false
+    },
+    {
+      "query": "According to the NIST Adversarial Machine Learning Taxonomy, what are the main attack categories?",
+      "kind": "no_evidence",
+      "scored": false,
+      "expected": [],
+      "retrieved": [
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1361
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1477
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1474
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1360
+        },
+        {
+          "source": "Machine-Learning-Systems.pdf",
+          "page": 1379
+        }
+      ],
+      "predicted_empty": false
+    }
+  ]
+}
