@@ -1,0 +1,179 @@
+--- app/api/routes/ask.py
++++ app/api/routes/ask.py
+@@ -1,99 +1,176 @@
+-import time
+ import logging
+-from pydantic import BaseModel, Field
+-from fastapi import APIRouter, Request
+-from typing import Optional
+-from app.retrieval.retrieve import run_retrieval
+-from app.core.config import settings
+-from app.retrieval.index_store import search
+-from app.db.queries import fetch_chunks_by_faiss_ids
++from typing import Optional, List
++
++from fastapi import APIRouter, Request
++from pydantic import BaseModel, Field
++
++from app.core.config import settings
++from app.retrieval.retrieve import run_retrieval
+ 
+ router = APIRouter()
+ logger = logging.getLogger("app.ask")
+ 
+ def _clean_excerpt(text: str, max_chars: int = 420) -> str:
+-    # colapsa whitespace (newlines, tabs, múltiple espacios)
++    """Collapse whitespace and trim to max_chars for UI/display."""
+     t = " ".join((text or "").split())
+     if len(t) > max_chars:
+         t = t[:max_chars].rstrip() + "…"
+     return t
++
+ class AskRequest(BaseModel):
++    # Keep 'question' for compatibility with existing clients/tests.
+     question: str = Field(min_length=1, max_length=4000)
+ 
++class Citation(BaseModel):
++    source: str
++    page: int
++    chunk_id: int
++    score: Optional[float] = None
++    excerpt: Optional[str] = None
++
+ class AskResponse(BaseModel):
+     answer: str
+-    citations: list[dict] = []
++    citations: List[Citation] = Field(default_factory=list)
++    abstained: bool
+     request_id: str
+     latency_ms: float
+     cost_usd: float
+     debug: Optional[dict] = None
+ 
+ class SearchRequest(BaseModel):
+     query: str = Field(min_length=1, max_length=4000)
+ 
+ class SearchHit(BaseModel):
+     source: str
+     page: int
+     chunk_id: int
+     score: Optional[float] = None
+     text: str
+ 
+ class SearchResponse(BaseModel):
+-    hits: list[SearchHit]
++    hits: List[SearchHit]
+     request_id: str
+     latency_ms: float
+     debug: Optional[dict] = None
+ 
+ @router.post("/search", response_model=SearchResponse)
+-def search_endpoint(payload: SearchRequest, request: Request):
++def search_endpoint(payload: SearchRequest, request: Request) -> SearchResponse:
+     request_id = getattr(request.state, "request_id", "-")
+ 
+-    rows, dbg, latency_ms, *_ = _run_retrieval(payload.query)
++    rows, dbg, latency_ms = run_retrieval(payload.query)
+ 
+     hits = []
+     for r in rows:
+         hits.append(
+             SearchHit(
+-                source=r.get("source"),
+-                page=r.get("page"),
+-                chunk_id=r.get("chunk_id"),
++                source=str(r.get("source") or ""),
++                page=int(r.get("page") or -1),
++                chunk_id=int(r.get("chunk_id") or -1),
+                 score=r.get("_score"),
+                 text=_clean_excerpt(r.get("text", ""), max_chars=1200),
+             )
+         )
+ 
+     return SearchResponse(
+         hits=hits,
+         request_id=request_id,
+         latency_ms=latency_ms,
+-        debug=dbg,
++        debug=dbg if settings.debug_rag else None,
+     )
++
+ @router.post("/ask", response_model=AskResponse)
+-def ask(payload: AskRequest, request: Request):
++def ask(payload: AskRequest, request: Request) -> AskResponse:
+     request_id = getattr(request.state, "request_id", "-")
+ 
+     logger.info(
+         "ask_received input_chars=%d",
+         len(payload.question),
+         extra={"request_id": request_id},
+     )
+ 
+-    rows, dbg, latency_ms, *_ = _run_retrieval(payload.question)
++    rows, dbg, latency_ms = run_retrieval(payload.question)
++    abstained = (len(rows) == 0)
+ 
+-    if not rows:
++    if abstained:
++        logger.info(
++            "ask_done abstained=true citations=0 latency_ms=%.2f",
++            latency_ms,
++            extra={"request_id": request_id},
++        )
+         return AskResponse(
+             answer="No tengo evidencia suficiente en los documentos para responder con seguridad.",
+             citations=[],
++            abstained=True,
+             request_id=request_id,
+             latency_ms=latency_ms,
+             cost_usd=0.0,
+-            debug=dbg,
++            debug=dbg if settings.debug_rag else None,
+         )
+ 
+     citations = []
+     excerpts = []
+     for r in rows:
+-        citations.append(
+-            {
+-                "source": r.get("source"),
+-                "page": r.get("page"),
+-                "chunk_id": r.get("chunk_id"),
+-                "score": r.get("_score"),
+-            }
+-        )
+-        excerpts.append(f"- {_clean_excerpt(r.get('text', ''))}")
++        excerpt = _clean_excerpt(r.get("text", ""))
++        citations.append(
++            Citation(
++                source=str(r.get("source") or ""),
++                page=int(r.get("page") or -1),
++                chunk_id=int(r.get("chunk_id") or -1),
++                score=r.get("_score"),
++                excerpt=excerpt,
++            )
++        )
++        excerpts.append(f"- {excerpt}")
+ 
+     answer = (
+         "He encontrado estos fragmentos relevantes en tus documentos. "
+         "Revisa las citas para verificar:\n\n" + "\n".join(excerpts)
+     )
+ 
++    logger.info(
++        "ask_done abstained=false citations=%d latency_ms=%.2f",
++        len(citations),
++        latency_ms,
++        extra={"request_id": request_id},
++    )
++
+     return AskResponse(
+         answer=answer,
+         citations=citations,
++        abstained=False,
+         request_id=request_id,
+         latency_ms=latency_ms,
+         cost_usd=0.0,
+-        debug=dbg,
++        debug=dbg if settings.debug_rag else None,
+     )

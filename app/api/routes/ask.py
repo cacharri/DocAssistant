@@ -5,8 +5,6 @@ from fastapi import APIRouter, Request
 from typing import Optional
 from app.retrieval.retrieve import run_retrieval
 from app.core.config import settings
-from app.retrieval.index_store import search
-from app.db.queries import fetch_chunks_by_faiss_ids
 
 router = APIRouter()
 logger = logging.getLogger("app.ask")
@@ -22,11 +20,12 @@ class AskRequest(BaseModel):
 
 class AskResponse(BaseModel):
     answer: str
-    citations: list[dict] = []
+    citations: list[dict] = Field(default_factory=list)
     request_id: str
     latency_ms: float
     cost_usd: float
     debug: Optional[dict] = None
+    abstained: bool
 
 class SearchRequest(BaseModel):
     query: str = Field(min_length=1, max_length=4000)
@@ -48,7 +47,7 @@ class SearchResponse(BaseModel):
 def search_endpoint(payload: SearchRequest, request: Request):
     request_id = getattr(request.state, "request_id", "-")
 
-    rows, dbg, latency_ms, *_ = _run_retrieval(payload.query)
+    rows, dbg, latency_ms = run_retrieval(payload.query)
 
     hits = []
     for r in rows:
@@ -66,7 +65,7 @@ def search_endpoint(payload: SearchRequest, request: Request):
         hits=hits,
         request_id=request_id,
         latency_ms=latency_ms,
-        debug=dbg,
+        debug = dbg if settings.debug_rag else None,
     )
 @router.post("/ask", response_model=AskResponse)
 def ask(payload: AskRequest, request: Request):
@@ -78,16 +77,17 @@ def ask(payload: AskRequest, request: Request):
         extra={"request_id": request_id},
     )
 
-    rows, dbg, latency_ms, *_ = _run_retrieval(payload.question)
+    rows, dbg, latency_ms = run_retrieval(payload.question)
 
     if not rows:
         return AskResponse(
             answer="No tengo evidencia suficiente en los documentos para responder con seguridad.",
             citations=[],
+            abstained=True,
             request_id=request_id,
             latency_ms=latency_ms,
             cost_usd=0.0,
-            debug=dbg,
+            debug=dbg if settings.debug_rag else None,
         )
 
     citations = []
@@ -111,6 +111,7 @@ def ask(payload: AskRequest, request: Request):
     return AskResponse(
         answer=answer,
         citations=citations,
+        abstained=False,
         request_id=request_id,
         latency_ms=latency_ms,
         cost_usd=0.0,
